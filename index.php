@@ -2,10 +2,24 @@
 
 require_once("config.php");
 
-$manoel = new Usuario();
+// Carrega um usuario //
+//$manoel = new Usuario();
+//$manoel->loadById(7);
+//echo $manoel;
 
-$manoel->loadById(8);
+// Carrega uma lista de usuarios //
+//$lista = Usuario::getList();
+//echo json_encode($lista);
 
-echo $manoel;
+// Carrega uma lista de usuarios buscando pelo login //
+//$search = Usuario::search("a");
+//echo json_encode($search);
+
+// Carrega um usuario autenticado //
+$usuario = new Usuario();
+$user = "Manoel";
+$pass = "123456";
+$usuario->login($user, $pass);
+echo $usuario;
 
  ?>
