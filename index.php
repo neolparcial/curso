@@ -16,10 +16,16 @@ require_once("config.php");
 //echo json_encode($search);
 
 // Carrega um usuario autenticado //
-$usuario = new Usuario();
-$user = "Manoel";
-$pass = "123456";
-$usuario->login($user, $pass);
-echo $usuario;
+//$usuario = new Usuario();
+$user = "Programador";
+$pass = "titinoelolo";
+//$usuario->login($user, $pass);
+//echo $usuario;
+
+$aluno = new Usuario($user, $pass);
+
+$aluno->insert();
+
+echo $aluno;
 
  ?>

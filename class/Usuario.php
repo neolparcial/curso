@@ -41,11 +41,8 @@ class Usuario{
 
 		if(count($results) > 0) {
 
-			$row = $results[0];
+			$this->setData($results[0]);
 
-			$this->setId($row['id']);
-			$this->setDeslogin($row['deslogin']);
-			$this->setDessenha($row['dessenha']);
 		}
 
 	}
@@ -79,17 +76,57 @@ class Usuario{
 
 		if(count($results) > 0) {
 
-			$row = $results[0];
-
-			$this->setId($row['id']);
-			$this->setDeslogin($row['deslogin']);
-			$this->setDessenha($row['dessenha']);
+			$this->setData($results[0]);
+			
 		} else {
 			
 			throw new Exception('Login e/ou senha inválidos!');
 
 		}
 
+	}
+
+	public function setData($data){
+
+		$this->setId($data['id']);
+		$this->setDeslogin($data['deslogin']);
+		$this->setDessenha($data['dessenha']);
+	}
+
+	public function insert(){
+
+		$sql = new Sql();
+
+		$results = $sql->select("CALL sp_usuarios_insert(:LOGIN, :SENHA)", array(
+			':LOGIN'=>$this->getDeslogin(),
+			':SENHA'=>$this->getDessenha()
+		));
+
+		if(count($results) > 0){
+
+			$this->setData($results[0]);
+
+		}
+	}
+
+	public function update($login, $password){
+
+		$this->setDeslogin($login);
+		$this->setDessenha($password);
+
+		$sql = new Sql();
+
+		$sql->query("UPDATE tb_usuarios SET deslogin = :LOGIN, dessenha = :PASSWORD WHERE id = :ID", array(
+
+		':LOGIN'=>$this->getDeslogin(),
+		':SENHA'=>$this->getDessenha()
+		));
+	}
+
+	public function __construct($login = "", $senha = ""){
+
+		$this->setDeslogin($login);
+		$this->setDessenha($senha);
 	}
 
 	public function __toString(){
