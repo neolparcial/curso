@@ -4,7 +4,7 @@ require_once("config.php");
 
 // Carrega um usuario //
 //$manoel = new Usuario();
-//$manoel->loadById(7);
+//$manoel->loadById(1);
 //echo $manoel;
 
 // Carrega uma lista de usuarios //
@@ -17,15 +17,26 @@ require_once("config.php");
 
 // Carrega um usuario autenticado //
 //$usuario = new Usuario();
-$user = "Programador";
-$pass = "titinoelolo";
+//$user = "manoel";
+//$pass = "123456";
 //$usuario->login($user, $pass);
 //echo $usuario;
 
-$aluno = new Usuario($user, $pass);
+// Cria um usuario //
+//$usuario = new Usuario("Manoel", "123456");
+//$usuario->insert();
+//echo $usuario;
 
-$aluno->insert();
+// Altera um usuario pelo id //
+//$usuario = new Usuario();
+//$usuario->loadById(1);
+//$usuario->update("NickDias", "!@#$");
+//echo $usuario;
 
-echo $aluno;
+$usuario = new Usuario();
+
+$usuario->delete();
+
+echo $usuario;
 
  ?>
