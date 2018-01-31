@@ -159,7 +159,8 @@ class Usuario{
 		return json_encode(array(
 			"idusuario"=>$this->getId(),
 			"deslogin"=>$this->getDeslogin(),
-			"dessenha"=>$this->getDessenha()
+			"dessenha"=>$this->getDessenha(),
+			"dtcadastro"=>$this->getdtCadastro()
 		));
 	}
 }

@@ -8,8 +8,8 @@ require_once("config.php");
 //echo $manoel;
 
 // Carrega uma lista de usuarios //
-//$lista = Usuario::getList();
-//echo json_encode($lista);
+$lista = Usuario::getList();
+echo json_encode($lista);
 
 // Carrega uma lista de usuarios buscando pelo login //
 //$search = Usuario::search("a");
@@ -23,9 +23,9 @@ require_once("config.php");
 //echo $usuario;
 
 // Cria um usuario //
-//$usuario = new Usuario("Manoel", "123456");
+//$usuario = new Usuario("Neolp", "123456");
 //$usuario->insert();
-//echo $usuario;
+//echo($usuario);
 
 // Altera um usuario pelo id //
 //$usuario = new Usuario();
@@ -33,10 +33,11 @@ require_once("config.php");
 //$usuario->update("NickDias", "!@#$");
 //echo $usuario;
 
-$usuario = new Usuario();
+// Deleta um usuario pelo ID;
+//$usuario = new Usuario();
+//$usuario->delete();
+//echo $usuario;
 
-$usuario->delete();
 
-echo $usuario;
 
  ?>
